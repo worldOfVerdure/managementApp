@@ -1,4 +1,4 @@
-import clipboard from "../../assets/clipboard.svg";
+import clipboard from "../../assets/images/clipboard.svg";
 import Projects from "./Projects.jsx";
 import MEDIA_SIZES from "../../auxiliary/mediaSizes.js";
 import { styled } from "styled-components";
