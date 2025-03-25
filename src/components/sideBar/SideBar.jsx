@@ -19,7 +19,7 @@ export default function SideBar () {
       >
         <img alt="A clipboard icon" src={clipboard} />
       </ClipboardBtn>
-      {toggleSideBar ? <Projects /> : null}
+      <Projects toggled={toggleSideBar} />
     </SideBarContainer>
   );
 }
@@ -34,8 +34,8 @@ const ClipboardBtn = styled.button`
   justify-content: center;
   left: 5%;
   position: absolute;
-  width: 5rem;
   top: 3%;
+  width: 5rem;
 
   @media (min-width: ${MEDIA_SIZES.tablet}) {
     display: none;

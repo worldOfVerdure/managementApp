@@ -1,8 +1,8 @@
 import { styled } from "styled-components";
 
-export default function Projects () {
+export default function Projects ({ toggled }) {
   return (
-    <ProjectContainer>
+    <ProjectContainer $toggleProjectContainer={toggled}>
       <ProjectContentContainer>
         <h1>Your Projects</h1>
         <AddProjectBtn>+ Add Project</AddProjectBtn>
@@ -30,6 +30,8 @@ const ProjectContainer = styled.div`
   height: 100vh;
   position: absolute;
   top: 13%;
+  transform: ${props => props.$toggleProjectContainer ? "translateX(0)" : "translateX(-105%)"};
+  transition: transform 1.5s ease-out;
   width: 100%;
 `;
 
@@ -44,7 +46,7 @@ const ProjectContentContainer = styled.div`
   & h1 {
     color:rgb(233, 233, 233);
     // !zzz Dev tools says the font-size property value is "invalid". Figure out why.
-    font-size: clamp(2rem, calc(1.8 + 1.5vw), 3rem);
+    font-size: clamp(2rem, calc(1.8rem + 1.5vw), 3rem);
     margin: 0;
   }
 `;
