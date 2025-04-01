@@ -1,3 +1,4 @@
+import ReuseableAddProjectBtn from "../ReuseableComponents/ReuseableAddProjectBtn.jsx";
 import { styled } from "styled-components";
 
 export default function Projects ({ toggled }) {
@@ -5,24 +6,12 @@ export default function Projects ({ toggled }) {
     <ProjectContainer $toggleProjectContainer={toggled}>
       <ProjectContentContainer>
         <h2>Your Projects</h2>
-        <AddProjectBtn>+ Add Project</AddProjectBtn>
+        <ReuseableAddProjectBtn btnColor="rgb(65, 60, 60)" >+ Add Project</ReuseableAddProjectBtn>
         {/* Add included projects here */}
       </ProjectContentContainer>
     </ProjectContainer>
   );
 }
-
-const AddProjectBtn = styled.button`
-  align-items: center;
-  background-color:rgb(65, 60, 60);
-  border-radius: .8rem;
-  color:rgb(233, 233, 233);
-  display: flex;
-  font-size: clamp(1.6rem, calc(1.4rem + 1.3vw), 2.4rem);
-  justify: center;
-  padding: .8rem;
-  width: fit-content;
-`;
 
 const ProjectContainer = styled.div`
   background-color: #1A1A1A;

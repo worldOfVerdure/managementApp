@@ -1,6 +1,6 @@
 import AddProject from "./components/MainProject/AddProject.jsx";
 import { createGlobalStyle } from "styled-components";
-import SideBar from "./components/sideBar/SideBar.jsx";
+import SideBar from "./components/SideBar/SideBar.jsx";
 import { useState } from "react";
 
 export default function App() {
