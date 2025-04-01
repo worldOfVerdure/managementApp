@@ -1,25 +1,20 @@
 import clipboard from "../../assets/images/clipboard.svg";
-import Projects from "./Projects.jsx";
+import SidebarProjects from "./SidebarProjects.jsx";
 import MEDIA_SIZES from "../../auxiliary/mediaSizes.js";
 import { styled } from "styled-components";
-import { useState } from "react";
+// import { useState } from "react";
 
-export default function SideBar () {
-  const [toggleSideBar, setToggleSideBar] = useState(false);
-  function handleClick () {
-    setToggleSideBar(() => !toggleSideBar);
-  }
-
+export default function SideBar ({ handleClick, toggleStatus }) {
   return (
     <SideBarContainer>
       <ClipboardBtn
-        $isActive={toggleSideBar}
+        $isActive={toggleStatus}
         onClick={handleClick}
         type="button"
       >
         <img alt="A clipboard icon" src={clipboard} />
       </ClipboardBtn>
-      <Projects toggled={toggleSideBar} />
+      <SidebarProjects toggled={toggleStatus} />
     </SideBarContainer>
   );
 }
@@ -44,6 +39,6 @@ const ClipboardBtn = styled.button`
 
 const SideBarContainer = styled.section`
   height: 100vh;
-  position: relative;
+  position: absolute;
   width: 80%;
 `;
