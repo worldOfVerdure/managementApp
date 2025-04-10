@@ -45,7 +45,7 @@ export default function App() {
         toggleStatus={toggleSideBar}
       />
       {/* //TODO:zzz Look up "react Conflicting event handlers".
-          //!zzz Make a fine ass redit post
+          //!zzz Make a fine ass redit post, also look up two components sharing same handler?
 */}
       {!projectCreation && <AddProject handleProjectCreationClick={handleProjectCreation} /> }
       {/* {projectCreation && <CreateProject /> } */}
