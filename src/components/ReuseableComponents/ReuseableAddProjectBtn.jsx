@@ -1,9 +1,10 @@
 import { styled } from "styled-components";
 
-export default function ReuseableAddProjectBtn ({ btnColor, children }) {
+export default function ReuseableAddProjectBtn ({ btnColor, handleBtnClick, children }) {
   return (
     <ReuseableAddBtn
       $btnColor={btnColor}
+      onClick={handleBtnClick}
       type="button"
     >
       {children}
@@ -18,7 +19,7 @@ const ReuseableAddBtn = styled.button`
   color: rgb(233, 233, 233);
   display: flex;
   font-size: clamp(1.6rem, calc(1.4rem + 1.3vw), 2.4rem);
-  justify: center;
+  justify-content: center;
   padding: .8rem;
   width: fit-content;
 `;

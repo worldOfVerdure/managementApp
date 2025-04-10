@@ -4,17 +4,20 @@ import MEDIA_SIZES from "../../auxiliary/mediaSizes.js";
 import { styled } from "styled-components";
 // import { useState } from "react";
 
-export default function SideBar ({ handleClick, toggleStatus }) {
+export default function SideBar ({ handleProjectCreationClick, handleSideClick, toggleStatus }) {
   return (
     <SideBarContainer>
       <ClipboardBtn
         $isActive={toggleStatus}
-        onClick={handleClick}
+        onClick={handleSideClick}
         type="button"
       >
         <img alt="A clipboard icon" src={clipboard} />
       </ClipboardBtn>
-      <SidebarProjects toggled={toggleStatus} />
+      <SidebarProjects
+        handleBtnClick = {handleProjectCreationClick}
+        toggled={toggleStatus}
+      />
     </SideBarContainer>
   );
 }

@@ -19,6 +19,11 @@ export default function App() {
   */
  //~https://react.dev/learn/updating-arrays-in-state
   // const [saveProject, setSaveProject] = useState([]); //Use for when saving
+  const [projectCreation, setProjectCreation] = useState(false);
+  function handleProjectCreation () {
+    setProjectCreation(() => !projectCreation);
+  }
+
   const [toggleSideBar, setToggleSideBar] = useState(false);
   function handleSidebarBtnClick () {
     setToggleSideBar(() => !toggleSideBar);
@@ -34,18 +39,19 @@ export default function App() {
   return (
     <>
       <GlobalStyles />
-      <SideBar 
-        handleClick={handleSidebarBtnClick}
+      <SideBar
+        handleProjectCreationClick={handleProjectCreation}
+        handleSideClick={handleSidebarBtnClick}
         toggleStatus={toggleSideBar}
       />
-      <AddProject />
+      {/* //TODO:zzz Look up "react Conflicting event handlers".
+          //!zzz Make a fine ass redit post
+*/}
+      {!projectCreation && <AddProject handleProjectCreationClick={handleProjectCreation} /> }
+      {/* {projectCreation && <CreateProject /> } */}
     </>
   );
 }
-
-//!zzzThe side bar is pushing down my main page. I liely need to see how I position the hidden
-//!sidebar. It is likely I need to make the body position relative and the side bar absolute to
-//!remove it from the normal document flow.
 
 const GlobalStyles = createGlobalStyle`
   * {

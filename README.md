@@ -31,3 +31,7 @@
  *      - Again manage your tasks state associated with each
  *        project, likely in the App component as well
  */
+
+
+BUGFIX:
+-Side bar clicked, then screen is resized, causing the sidebar btn to display as none (intended)while the side bar persists, with no way to remove it.

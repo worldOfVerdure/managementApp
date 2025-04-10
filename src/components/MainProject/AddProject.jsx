@@ -2,13 +2,18 @@ import ClipboardImg from "./ClipbosrdImg.jsx";
 import ReuseableAddProjectBtn from "../ReuseableComponents/ReuseableAddProjectBtn.jsx";
 import { styled } from "styled-components";
 
-export default function AddProject () {
+export default function AddProject ( { handleProjectCreationClick } ) {
   return (
     <MainPage>
       <ClipboardImg />
       <h1>No Project Selected</h1>
       <p>Select a project or get started with a new one</p>
-      <ReuseableAddProjectBtn btnColor="#1A1A1A">Create new project</ReuseableAddProjectBtn>
+      <ReuseableAddProjectBtn
+        btnColor="#1A1A1A"
+        handleBtnClick={handleProjectCreationClick}
+      >
+        Create new project
+      </ReuseableAddProjectBtn>
     </MainPage>
   );
 }
