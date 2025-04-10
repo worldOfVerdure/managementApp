@@ -1,9 +1,9 @@
 import ReuseableAddProjectBtn from "../ReuseableComponents/ReuseableAddProjectBtn.jsx";
 import { styled } from "styled-components";
 
-export default function Projects ({ handleBtnClick ,toggled }) {
+export default function SidebarProjects ({ handleBtnClick }) {
   return (
-    <ProjectContainer $toggleProjectContainer={toggled}>
+    <ProjectContainer >
       <ProjectContentContainer>
         <h2>Your Projects</h2>
         <ReuseableAddProjectBtn 
@@ -23,9 +23,7 @@ const ProjectContainer = styled.div`
   border-top-right-radius: .8rem;
   height: 100vh;
   position: absolute;
-  top: 13%;
-  transform: ${props => props.$toggleProjectContainer ? "translateX(0)" : "translateX(-105%)"};
-  transition: transform 1.1s ease-out;
+  top: 5%;
   width: 100%;
 `;
 

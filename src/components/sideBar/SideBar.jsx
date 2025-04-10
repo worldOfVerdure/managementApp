@@ -6,7 +6,7 @@ import { styled } from "styled-components";
 
 export default function SideBar ({ handleProjectCreationClick, handleSideClick, toggleStatus }) {
   return (
-    <SideBarContainer>
+    <>
       <ClipboardBtn
         $isActive={toggleStatus}
         onClick={handleSideClick}
@@ -14,13 +14,15 @@ export default function SideBar ({ handleProjectCreationClick, handleSideClick, 
       >
         <img alt="A clipboard icon" src={clipboard} />
       </ClipboardBtn>
-      <SidebarProjects
-        handleBtnClick = {handleProjectCreationClick}
-        toggled={toggleStatus}
-      />
-    </SideBarContainer>
+      <SideBarContainer $toggled={toggleStatus} >
+        <SidebarProjects handleBtnClick = {handleProjectCreationClick} />
+      </SideBarContainer>
+    </>
   );
 }
+// Place in section component styles.
+// transform: ${props => props.$toggleProjectContainer ? "translateX(0)" : "translateX(-105%)"};
+//  transition: transform 1.1s ease-out;
 
 const ClipboardBtn = styled.button`
   align-items: center;
@@ -41,7 +43,10 @@ const ClipboardBtn = styled.button`
 `;
 
 const SideBarContainer = styled.section`
-  height: 100vh;
+  bottom: 0%;
+  height: 90vh;
   position: absolute;
+  transform: ${props => props.$toggled ? "translateX(0)" : "translateX(-105%)"};
+  transition: transform 1.1s ease-out;
   width: 80%;
 `;

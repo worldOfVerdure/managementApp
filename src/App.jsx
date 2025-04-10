@@ -1,5 +1,6 @@
 import AddProject from "./components/MainProject/AddProject.jsx";
 import { createGlobalStyle } from "styled-components";
+import CreateProject from "./components/MainProject/CreateProject.jsx";
 import SideBar from "./components/SideBar/SideBar.jsx";
 import { useState } from "react";
 
@@ -44,11 +45,8 @@ export default function App() {
         handleSideClick={handleSidebarBtnClick}
         toggleStatus={toggleSideBar}
       />
-      {/* //TODO:zzz Look up "react Conflicting event handlers".
-          //!zzz Make a fine ass redit post, also look up two components sharing same handler?
-*/}
-      {!projectCreation && <AddProject handleProjectCreationClick={handleProjectCreation} /> }
-      {/* {projectCreation && <CreateProject /> } */}
+      { !projectCreation && <AddProject handleProjectCreationClick={handleProjectCreation} /> }
+      { projectCreation && <CreateProject /> }
     </>
   );
 }
@@ -60,6 +58,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-size: 1.6rem;
+    height: 100vh;
     margin: 0;
     position: relative;
     overflow: hidden;
