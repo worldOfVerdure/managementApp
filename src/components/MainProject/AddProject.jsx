@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 
 export default function AddProject ( { handleProjectCreationClick } ) {
   return (
-    <MainPage>
+    <MainAddPage>
       <ClipboardImg />
       <h1>No Project Selected</h1>
       <p>Select a project or get started with a new one</p>
@@ -14,11 +14,11 @@ export default function AddProject ( { handleProjectCreationClick } ) {
       >
         Create new project
       </ReuseableAddProjectBtn>
-    </MainPage>
+    </MainAddPage>
   );
 }
 
-const MainPage = styled.main`
+const MainAddPage = styled.main`
   align-items: center;
   display: flex;
   flex-direction: column;

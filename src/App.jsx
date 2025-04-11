@@ -5,24 +5,24 @@ import SideBar from "./components/SideBar/SideBar.jsx";
 import { useState } from "react";
 
 export default function App() {
-  /*
-    setState to add projects buttons, one on sidebar and the other on AddProject. Both share state.
-  */
-  /*
-    setState for save button here. Have it so sidebar can add project. Create project page goes
-      back to main page 
-  */
-  /*
-    setState for clicking a project in the nav side bar. On mobile, make sidebar slide off screen,
-      while changing. Might be easiest to elevate the state of SideBar to App. On larger viewports,
-      the sidebar will always be rendered.
+  const [cancelModal, setCancelModal] = useState(false);
+  function handleCancelModal () {
+    setCancelModal(() => !cancelModal);
+  }
 
-  */
- //~https://react.dev/learn/updating-arrays-in-state
-  // const [saveProject, setSaveProject] = useState([]); //Use for when saving
+  //const [cancelProjectCreation, setCancelProjectCreation] = useState([]); //empty array of objects
+
   const [projectCreation, setProjectCreation] = useState(false);
+  const [overwriteAddProjectModal, setOverwriteAddProjectModal] = useState(false);
   function handleProjectCreation () {
     setProjectCreation(() => !projectCreation);
+    // Close sidebar when clicking "+ Add Project" button.
+    if (toggleSideBar)
+      setToggleSideBar(() => !toggleSideBar);
+    // If the project creation page is open, then clicking "+ Add Project" button will open a modal.
+    if (projectCreation)
+      setOverwriteAddProjectModal(() => !overwriteAddProjectModal);
+
   }
 
   const [toggleSideBar, setToggleSideBar] = useState(false);
@@ -30,13 +30,6 @@ export default function App() {
     setToggleSideBar(() => !toggleSideBar);
   }
 
-  // const [addProject, setAddProject] = useState(false);
-  // function handleAddClick() {
-  //   setAddProject(() => !addProject);
-
-  //   if (toggleSideBar)
-  //     handleSidebarBtnClick();
-  // }
   return (
     <>
       <GlobalStyles />
@@ -46,7 +39,13 @@ export default function App() {
         toggleStatus={toggleSideBar}
       />
       { !projectCreation && <AddProject handleProjectCreationClick={handleProjectCreation} /> }
-      { projectCreation && <CreateProject /> }
+      { projectCreation &&
+        <CreateProject 
+          handleCancelClick={handleCancelModal}
+        />
+      }
+      {/* zzzCreate a reuseable Modal component to warn user about overwriting their exisiting project */}
+      {/* { overwriteAddProjectModal && <Modal /> } */}
     </>
   );
 }

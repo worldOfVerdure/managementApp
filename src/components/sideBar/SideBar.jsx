@@ -47,6 +47,7 @@ const SideBarContainer = styled.section`
   height: 90vh;
   position: absolute;
   transform: ${props => props.$toggled ? "translateX(0)" : "translateX(-105%)"};
-  transition: transform 1.1s ease-out;
+  transition: transform 1s ease-out;
   width: 80%;
+  z-index: 1;
 `;
