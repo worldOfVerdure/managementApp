@@ -18,18 +18,19 @@ export default function CreateProject () {
         </SaveBtn>
       </CancelSave>
       <CreationForm >
-        <label for="title" >TITLE</label>
-        <input id="" />
+        <label htmlFor="title" >TITLE</label>
+        <input id="title" />
 
-        <label>DESCRIPTION</label>
+        <label htmlFor="description" >DESCRIPTION</label>
         <textarea
           cols="30"
+          id="description"
           rows="5"
         >
         </textarea>
 
-        <label>DUE DATE</label>
-        <input type="date" />
+        <label htmlFor="date" >DUE DATE</label>
+        <input id="date" type="date" />
       </CreationForm>
     </MainCreation>
   );

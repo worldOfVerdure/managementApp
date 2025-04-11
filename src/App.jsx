@@ -1,28 +1,30 @@
 import AddProject from "./components/MainProject/AddProject.jsx";
 import { createGlobalStyle } from "styled-components";
 import CreateProject from "./components/MainProject/CreateProject.jsx";
+import Modal from "./components/ReuseableComponents/Modal.jsx";
 import SideBar from "./components/SideBar/SideBar.jsx";
 import { useState } from "react";
 
-export default function App() {
-  const [cancelModal, setCancelModal] = useState(false);
-  function handleCancelModal () {
-    setCancelModal(() => !cancelModal);
-  }
-
-  //const [cancelProjectCreation, setCancelProjectCreation] = useState([]); //empty array of objects
-
+export default function App() { 
   const [projectCreation, setProjectCreation] = useState(false);
-  const [overwriteAddProjectModal, setOverwriteAddProjectModal] = useState(false);
+  const [modalDisplayStatus, setModalDisplayStatus] = useState(false);
   function handleProjectCreation () {
-    setProjectCreation(() => !projectCreation);
+    // If the project creation page is open, then clicking "+ Add Project" button will open a modal.
+    if (projectCreation)
+      setModalDisplayStatus(() => !modalDisplayStatus);
+    else
+      setProjectCreation(() => !projectCreation);
+
+    // if (modalDisplayStatus)
+      
+
     // Close sidebar when clicking "+ Add Project" button.
     if (toggleSideBar)
       setToggleSideBar(() => !toggleSideBar);
-    // If the project creation page is open, then clicking "+ Add Project" button will open a modal.
-    if (projectCreation)
-      setOverwriteAddProjectModal(() => !overwriteAddProjectModal);
-
+  }
+  //&Probablly will need a handleModal handler.
+  function handleModalDisplay () {
+    setModalDisplayStatus(() => !modalDisplayStatus);
   }
 
   const [toggleSideBar, setToggleSideBar] = useState(false);
@@ -41,11 +43,13 @@ export default function App() {
       { !projectCreation && <AddProject handleProjectCreationClick={handleProjectCreation} /> }
       { projectCreation &&
         <CreateProject 
-          handleCancelClick={handleCancelModal}
+          
         />
       }
-      {/* zzzCreate a reuseable Modal component to warn user about overwriting their exisiting project */}
-      {/* { overwriteAddProjectModal && <Modal /> } */}
+      <Modal 
+        displayStatus={modalDisplayStatus}
+        handleModalDisplayClick={handleModalDisplay}
+      />
     </>
   );
 }
@@ -61,6 +65,10 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     position: relative;
     overflow: hidden;
+  }
+
+  button:hover {
+    cursor: pointer;
   }
 
   html {
