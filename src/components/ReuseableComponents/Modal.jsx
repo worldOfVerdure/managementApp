@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import { useRef } from "react";
 
-export default function Modal ({ displayStatus, handleModalDisplayClick }) {
+export default function Modal ({ displayStatus, handleProjectResetClick, handleModalDisplayClick }) {
   const ModalRef = useRef();
 
   if (displayStatus)
@@ -15,25 +15,22 @@ export default function Modal ({ displayStatus, handleModalDisplayClick }) {
     >
       <p>Cancel current project being added?</p>
       <NayYayBtnContainer>
-        <NayBtn
+        <button
           onClick={handleModalDisplayClick}
           type="button"
         >
           No
-        </NayBtn>
-        <YayBtn
+        </button>
+        <button
+          onClick={handleProjectResetClick}
           type="button"
         >
           Yes
-        </YayBtn>
+        </button>
       </NayYayBtnContainer>
     </ReuseableModal>
   );
 }
-
-const NayBtn = styled.button`
-
-`;
 
 const NayYayBtnContainer = styled.div`
   display: flex;
@@ -56,8 +53,4 @@ const ReuseableModal = styled.dialog`
   margin: 0 auto;
   position: absolute;
   top: 30%;
-`;
-
-const YayBtn = styled.button`
-
 `;

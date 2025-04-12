@@ -2,35 +2,48 @@ import { styled } from "styled-components";
 
 const FORM_CANCELSAVE_WIDTH = "85%";
 
-export default function CreateProject () {
+export default function CreateProject ({ date, description, title, handleCancel, handleChange }) {
   return (
     <MainCreation >
-      <CancelSave >
-        <CancelBtn 
-          type="button"
-        >
-          Cancel
-        </CancelBtn>
-        <SaveBtn 
-          type="button"
-        >
-          Save
-        </SaveBtn>
-      </CancelSave>
       <CreationForm >
-        <label htmlFor="title" >TITLE</label>
-        <input id="title" />
+        <CancelSave >
+          <CancelBtn
+            onClick={handleCancel}
+            type="button"
+          >
+            Cancel
+          </CancelBtn>
+          <SaveBtn
+            type="submit"
+            //&zzzAdd save functionality
+          >
+            Save
+          </SaveBtn>
+        </CancelSave>
+        <label htmlFor="title" >TITLE<em> *</em></label>
+        <input
+          id="title"
+          onChange={e => handleChange("title", e.target.value)}
+          value={title}
+        />
 
         <label htmlFor="description" >DESCRIPTION</label>
         <textarea
           cols="30"
           id="description"
+          onChange={e => handleChange("description", e.target.value)}
           rows="5"
+          value={description}
         >
         </textarea>
 
         <label htmlFor="date" >DUE DATE</label>
-        <input id="date" type="date" />
+        <input
+          id="date"
+          onChange={e => handleChange("date", e.target.value)}
+          type="date"
+          value={date}
+        />
       </CreationForm>
     </MainCreation>
   );
@@ -44,6 +57,7 @@ const CancelBtn = styled.button`
 `;
 
 const CancelSave = styled.div`
+  align-self: end;
   display: flex;
   gap: .8rem;
   justify-content: end;
@@ -80,8 +94,6 @@ const CreationForm = styled.form`
 const MainCreation = styled.main`
   align-items: center;
   display: flex;
-  flex-direction: column;
-  gap: 4rem;
   justify-content: center;
   position: absolute;
   top: 20%;
