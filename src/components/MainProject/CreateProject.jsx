@@ -5,7 +5,7 @@ const FORM_CANCELSAVE_WIDTH = "85%";
 export default function CreateProject ({ date, description, title, handleCancel, handleChange }) {
   return (
     <MainCreation >
-      <CreationForm >
+      <CreationForm action="#" method="post" >
         <CancelSave >
           <CancelBtn
             onClick={handleCancel}
@@ -23,6 +23,7 @@ export default function CreateProject ({ date, description, title, handleCancel,
         <label htmlFor="title" >TITLE<em> *</em></label>
         <input
           id="title"
+          name="projectTitle"
           onChange={e => handleChange("title", e.target.value)}
           value={title}
         />
@@ -31,6 +32,7 @@ export default function CreateProject ({ date, description, title, handleCancel,
         <textarea
           cols="30"
           id="description"
+          name="projectDescription"
           onChange={e => handleChange("description", e.target.value)}
           rows="5"
           value={description}
@@ -41,6 +43,7 @@ export default function CreateProject ({ date, description, title, handleCancel,
         <input
           id="date"
           onChange={e => handleChange("date", e.target.value)}
+          name="projectDate"
           type="date"
           value={date}
         />

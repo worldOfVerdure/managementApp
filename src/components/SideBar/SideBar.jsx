@@ -15,7 +15,7 @@ export default function SideBar ({ handleProjectCreationClick, handleSideClick, 
         <img alt="A clipboard icon" src={clipboard} />
       </ClipboardBtn>
       <SideBarContainer $toggled={toggleStatus} >
-        <SidebarProjects handleBtnClick = {handleProjectCreationClick} />
+        <SidebarProjects handleBtnClick={handleProjectCreationClick} />
       </SideBarContainer>
     </>
   );
