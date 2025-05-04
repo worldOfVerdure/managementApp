@@ -5,7 +5,7 @@ const FORM_CANCELSAVE_WIDTH = "85%";
 export default function CreateProject ({ date, description, title, handleCancel, handleChange }) {
   return (
     <MainCreation >
-      <CreationForm >
+      <CreationForm  action="/www.my-Netifly-Server.com" method="post" >
         <CancelSave >
           <CancelBtn
             onClick={handleCancel}
@@ -14,7 +14,7 @@ export default function CreateProject ({ date, description, title, handleCancel,
             Cancel
           </CancelBtn>
           <SaveBtn
-            type="submit"
+            type="button"
             //&zzzAdd save functionality
           >
             Save
@@ -23,7 +23,10 @@ export default function CreateProject ({ date, description, title, handleCancel,
         <label htmlFor="title" >TITLE<em> *</em></label>
         <input
           id="title"
+          name="projectTitle"
+          pattern="^.*\S.*$"
           onChange={e => handleChange("title", e.target.value)}
+          required
           value={title}
         />
 
@@ -88,6 +91,10 @@ const CreationForm = styled.form`
 
   & input {
     height: 3rem;
+  }
+
+  & input:user-invalid {
+    outline: .2rem solid #FF6347;
   }
 `;
 
