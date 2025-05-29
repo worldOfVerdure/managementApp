@@ -20,9 +20,6 @@ export default function SideBar ({ handleProjectCreationClick, handleSideClick, 
     </>
   );
 }
-// Place in section component styles.
-// transform: ${props => props.$toggleProjectContainer ? "translateX(0)" : "translateX(-105%)"};
-//  transition: transform 1.1s ease-out;
 
 const ClipboardBtn = styled.button`
   align-items: center;
