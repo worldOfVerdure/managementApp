@@ -1,8 +1,7 @@
 import clipboard from "../../assets/images/clipboard.svg";
-import SidebarProjects from "./SidebarProjects.jsx";
+import SideBarProjects from "./SideBarProjects.jsx";
 import MEDIA_SIZES from "../../auxiliary/mediaSizes.js";
 import { styled } from "styled-components";
-// import { useState } from "react";
 
 export default function SideBar ({ handleProjectCreationClick, handleSideClick, toggleStatus }) {
   return (
@@ -15,7 +14,7 @@ export default function SideBar ({ handleProjectCreationClick, handleSideClick, 
         <img alt="A clipboard icon" src={clipboard} />
       </ClipboardBtn>
       <SideBarContainer $toggled={toggleStatus} >
-        <SidebarProjects handleBtnClick = {handleProjectCreationClick} />
+        <SideBarProjects handleBtnClick = {handleProjectCreationClick} />
       </SideBarContainer>
     </>
   );
