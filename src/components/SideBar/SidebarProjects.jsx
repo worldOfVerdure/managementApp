@@ -1,7 +1,7 @@
 import ReuseableAddProjectBtn from "../ReuseableComponents/ReuseableAddProjectBtn.jsx";
 import { styled } from "styled-components";
 
-export default function SidebarProjects ({ handleBtnClick }) {
+export default function SideBarProjects ({ handleBtnClick }) {
   return (
     <ProjectContainer >
       <ProjectContentContainer>
