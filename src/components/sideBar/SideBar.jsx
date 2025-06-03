@@ -19,7 +19,7 @@ export default function SideBar ({ handleProjectCreationClick, handleSideClick, 
     </>
   );
 }
-
+// Set display none when screen gets past certain size.
 const ClipboardBtn = styled.button`
   align-items: center;
   background-color: ${props => props.$isActive ? "rgb(11, 72, 133)" : "rgb(11, 42, 73)"};
